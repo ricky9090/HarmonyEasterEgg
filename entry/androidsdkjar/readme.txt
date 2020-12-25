@@ -1,0 +1,1 @@
+Copy Android SDK platforms/android-29/android.jar to this dir.
