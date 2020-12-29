@@ -32,11 +32,11 @@ public class ActivityThreadHandlerCallback implements Handler.Callback {
                             Field mIntentFiled = LaunchActivityItemClazz.getDeclaredField("mIntent");
                             mIntentFiled.setAccessible(true);
                             Intent intent = (Intent) mIntentFiled.get(o);
-                            if (intent.getStringExtra(MyUtils.PLAT_LOGO_TAG) != null) {
+                            if (intent.getBooleanExtra(MyUtils.PLAT_LOGO_TAG, false)) {
                                 android.content.Intent easterEggIntent = new android.content.Intent();
                                 easterEggIntent.setClassName(
                                         "android",
-                                        intent.getStringExtra(MyUtils.PLAT_LOGO_TAG));
+                                        "com.android.internal.app.PlatLogoActivity");
                                 mIntentFiled.set(o, easterEggIntent);
                             }
                         } catch (Exception e) {

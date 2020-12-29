@@ -35,6 +35,7 @@ public class MainAbilitySlice extends AbilitySlice {
         try {
             android.content.Intent  intent = new android.content.Intent(android.content.Intent.ACTION_MAIN);
             intent.setClassName("android", "com.android.internal.app.PlatLogoActivity");
+            intent.putExtra(MyUtils.PLAT_LOGO_TAG, true);
             MyUtils.getCurrentActivity().startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();

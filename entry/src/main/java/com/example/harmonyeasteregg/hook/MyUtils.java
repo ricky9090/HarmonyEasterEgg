@@ -75,11 +75,13 @@ public class MyUtils {
                                     }
                                 }
                                 Intent orgIntent = (Intent) args[index];
+                                if (!orgIntent.getBooleanExtra(MyUtils.PLAT_LOGO_TAG, false)) {
+                                    return method.invoke(mInstance, args);
+                                }
                                 Intent proxyIntent = new Intent();
-
                                 proxyIntent.setClassName("com.example.harmonyeasteregg",
                                         "com.example.harmonyeasteregg.MainAbilityShellActivity");
-                                proxyIntent.putExtra(PLAT_LOGO_TAG, "com.android.internal.app.PlatLogoActivity");
+                                proxyIntent.putExtra(MyUtils.PLAT_LOGO_TAG, true);
                                 args[index] = proxyIntent;
                             }
                             return method.invoke(mInstance, args);
